@@ -47,8 +47,6 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=password
     depends_on:
       - postgres
-    networks:
-      - default
 
 
 volumes:
