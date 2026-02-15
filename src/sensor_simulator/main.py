@@ -32,7 +32,7 @@ def generate_sensor_event(sensor_id: int) -> dict:
 def delivery_report(err, msg):
     if err is not None:
         print(f"Delivery failed for record {msg.key()}: {err}")
-    # sonst still – optional
+    # sonst still
 
 def run_simulator(num_sensors: int = 5, interval_seconds: float = 1.0) -> None:
     conf = {
