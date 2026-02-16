@@ -36,7 +36,7 @@ services:
       - de-postgres-data:/var/lib/postgresql/data
 
 
-    grafana:
+  grafana:
     image: grafana/grafana:latest
     container_name: de-grafana
     ports:

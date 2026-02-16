@@ -5,8 +5,8 @@ datasources:
     type: postgres
     access: proxy
     url: de-postgres:5432
-    database: de_db
     user: de_user
+    database: de_db
     jsonData:
       sslmode: 'disable'
       postgresVersion: 1600
