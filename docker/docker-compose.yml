@@ -33,7 +33,7 @@ services:
       - postgres
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - PG_HOST=postgres  # Wichtig: "postgres" statt "localhost"
+      - PG_HOST=postgres  # "postgres" statt "localhost"
       - PG_PORT=5432
       - PG_DB=de_db
       - PG_USER=de_user

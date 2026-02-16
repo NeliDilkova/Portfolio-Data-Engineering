@@ -8,9 +8,10 @@ import json
 import time
 from datetime import datetime, timezone
 from confluent_kafka import Producer 
+import os
 
 TOPIC = "sensor_readings_raw"
-BOOTSTRAP_SERVERS = "localhost:9092"  # Kafka aus Docker
+BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 
 def generate_sensor_event(sensor_id: int) -> dict:
     base_temp = 20.0 + sensor_id
