@@ -12,7 +12,7 @@
     {
       "datasource": {
         "type": "postgres",
-        "uid": "PostgreSQL"
+        "uid": "PostgreSQLNeu"
       },
       "fieldConfig": {
         "defaults": {
@@ -65,7 +65,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "PostgreSQL"
+            "uid": "PostgreSQLNeu"
           },
           "format": "table",
           "rawSql": "SELECT \n  AVG(outlier_ratio) AS \"Average Outlier Ratio\"\nFROM sensor_aggregates\nWHERE window_start >= NOW() - INTERVAL '1 hour';",
@@ -78,7 +78,7 @@
     {
       "datasource": {
         "type": "postgres",
-        "uid": "PostgreSQL"
+        "uid": "PostgreSQLNeu"
       },
       "fieldConfig": {
         "defaults": {
@@ -151,7 +151,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "PostgreSQL"
+            "uid": "PostgreSQLNeu"
           },
           "format": "time_series",
           "rawSql": "SELECT \n  window_start AS time,\n  sensor_id AS metric,\n  outlier_ratio AS value\nFROM sensor_aggregates\nWHERE window_start >= NOW() - INTERVAL '6 hours'\nORDER BY time;",
@@ -164,7 +164,7 @@
     {
       "datasource": {
         "type": "postgres",
-        "uid": "PostgreSQL"
+        "uid": "PostgreSQLNeu"
       },
       "fieldConfig": {
         "defaults": {
@@ -254,7 +254,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "PostgreSQL"
+            "uid": "PostgreSQLNeu"
           },
           "format": "table",
           "rawSql": "SELECT \n  sensor_id,\n  COUNT(*) AS total_windows,\n  AVG(outlier_ratio) AS avg_outlier_ratio,\n  MAX(outlier_ratio) AS max_outlier_ratio\nFROM sensor_aggregates\nWHERE window_start >= NOW() - INTERVAL '24 hours'\nGROUP BY sensor_id\nORDER BY avg_outlier_ratio DESC;",
@@ -267,7 +267,7 @@
     {
       "datasource": {
         "type": "postgres",
-        "uid": "PostgreSQL"
+        "uid": "PostgreSQLNeu"
       },
       "fieldConfig": {
         "defaults": {
@@ -340,7 +340,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "PostgreSQL"
+            "uid": "PostgreSQLNeu"
           },
           "format": "time_series",
           "rawSql": "SELECT \n  window_start AS time,\n  sensor_id AS metric,\n  avg_temperature AS value\nFROM sensor_aggregates\nWHERE window_start >= NOW() - INTERVAL '6 hours'\nORDER BY time;",
