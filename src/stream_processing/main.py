@@ -19,6 +19,7 @@ PG_USER = os.getenv("PG_USER", "de_user")
 PG_PASSWORD = os.getenv("PG_PASSWORD", "de_password")
 
 
+
 # Tumbling-Window-Größe
 WINDOW_SIZE_SECONDS = 60  # 1-Minuten-Fenster
 
