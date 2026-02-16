@@ -9,6 +9,40 @@ services:
     ports:
       - "2181:2181"
 
+
+  sensor-simulator:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.sensor_simulator
+    container_name: de-sensor-simulator
+    depends_on:
+      - kafka
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092  # "kafka" statt "localhost"
+    restart: unless-stopped
+    networks:
+      - default
+
+  stream-processor:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.stream_processing
+    container_name: de-stream-processor
+    depends_on:
+      - kafka
+      - postgres
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - PG_HOST=postgres  # Wichtig: "postgres" statt "localhost"
+      - PG_PORT=5432
+      - PG_DB=de_db
+      - PG_USER=de_user
+      - PG_PASSWORD=de_password
+    restart: unless-stopped
+    networks:
+      - default
+
+
   kafka:
     image: confluentinc/cp-kafka:7.6.0
     container_name: de-kafka
@@ -34,6 +68,7 @@ services:
       - "5432:5432"
     volumes:
       - de-postgres-data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
 
 
   grafana:
