@@ -1,18 +1,18 @@
 apiVersion: 1
 
 datasources:
-  - name: PostgreSQL
+  - name: PostgreSQL (neu)
     type: postgres
-    uid: PostgreSQL
+    uid: PostgreSQLNeu
     access: proxy
     url: de-postgres:5432
     user: de_user
-    database: de_db
-    jsonData:
-      sslmode: 'disable'
-      postgresVersion: 1600
-      timescaledb: false
     secureJsonData:
       password: 'de_password'
+    jsonData:
+      database: de_db
+      sslmode: 'disable'          # disable/require/verify-ca/verify-full
+      postgresVersion: 1600       # 16.0
+      timescaledb: false
     isDefault: true
     editable: false

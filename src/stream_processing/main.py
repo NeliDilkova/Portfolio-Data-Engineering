@@ -132,7 +132,7 @@ def main():
 
                     # Z-Score-Ausreißer: |z| > 3
                     z_outlier_count = 0
-                    z_threshold = 3.0
+                    z_threshold = 2.0
                     if std_temp is not None and std_temp > 0:
                         for t in state["temps"]:
                             z = (t - mean) / std_temp
